@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import { useEffect, useState } from "react";
 import Contact from "./components/Contact";
+import CustomCursor from "./components/CustomCursor";
 
 export default function Home() {
   const [isDarkMode,setIsDarkMode]=useState(false);
@@ -41,6 +42,7 @@ export default function Home() {
     <Projects isDarkMode={isDarkMode} />
     <Skills isDarkMode={isDarkMode} />
     <Contact isDarkMode={isDarkMode} />
+    <CustomCursor isDarkMode={isDarkMode} />
     </>
   );
 }

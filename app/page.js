@@ -20,20 +20,16 @@ export default function Home() {
       setIsDarkMode(false);
     }
   },[])
-  useEffect(()=>{
-    if(isDarkMode){    
-      document.documentElement.classList.add("dark");
-      document.body.classList.add("dark:bg-black")
-      document.body.classList.add("dark:text-white")
-      localStorage.theme='dark';
-    }
-    else{
-      document.documentElement.classList.remove("dark");
-       document.body.classList.remove("dark:bg-black")
-       document.body.classList.remove("dark:text-white")
-       localStorage.theme='';
-    }
-  },[isDarkMode])
+  useEffect(() => {
+  if (isDarkMode) {    
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.theme = "";
+  }
+}, [isDarkMode]);
+
   return (
     <>
     <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>

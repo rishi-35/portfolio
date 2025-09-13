@@ -3,8 +3,10 @@ import Image from "next/image";
 import React from "react";
 import "../globals.css";
 import {motion} from "framer-motion"
+import { useRouter } from "next/navigation";
 
 const About = ({isDarkMode}) => {
+  const router =useRouter();
   return (
     <motion.div id="about" className="w-full px-[12%] py-10 scroll-mt-20"
        initial={{ opacity:0}}
@@ -43,14 +45,7 @@ const About = ({isDarkMode}) => {
         transition={{duration:0.6,delay:0.8}}
         className="flex-1">
           <p className="mb-10 max-w-2xl font_ovo">
-            I’m Rishi Konga, an Information Technology undergraduate at Gokaraju
-            Rangaraju Institute. I enjoy building full-stack web applications
-            and exploring new tech tools. My core skills include JavaScript,
-            React, Node.js, and database systems. I’ve built a dynamic music
-            player with album browsing and responsive design. I’m passionate
-            about solving real-world problems through coding and continuous
-            learning. Currently, I’m expanding my experience in full-stack
-            development through hands-on projects.
+            I’m Rishi Konga, an Information Technology undergraduate at Gokaraju Rangaraju Institute with a strong focus on full-stack development. Skilled in JavaScript, React, Next.js, Node.js, and database systems, I enjoy transforming ideas into scalable web applications. One of my key projects, HealthConnect, addresses a critical healthcare challenge by enabling patients to find available doctors in real time during emergencies. Alongside projects, I have solved 400+ LeetCode problems, strengthening my expertise in data structures and algorithms. Passionate about problem-solving and innovation, I aim to build impactful solutions through technology.
           </p>
           <motion.ul
             initial={{ opacity:0}}
@@ -58,10 +53,12 @@ const About = ({isDarkMode}) => {
         transition={{duration:0.8,delay:1}}  
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
             {
-                infoList.map(({icon,iconDark,title,description},index)=>(
+                infoList.map(({icon,iconDark,title,description,link},index)=>(
                     <motion.li
                         whileInView={{scale:1.05}}
-                    className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_3px_black]  dark:hover:shadow-[8px_8px_8px_rgba(31,47,74,255)]" key={index}>
+                    className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer  hover:-translate-y-1 duration-500 hover:shadow-[4px_4px_3px_black]  dark:hover:shadow-[8px_8px_8px_rgba(31,47,74,255)]" key={index}
+                    onClick={()=>{router.push(link)}}
+                    >
                         <Image src={isDarkMode? iconDark: icon} alt={title} className="w-7 mt-3" />
                         {/* {console.log("isDarkMode",isDarkMode)} */} 
                         <h3 className={` my-4 font-semibold text-gray-700 ${isDarkMode ? "text-white":""}`} >{title}</h3>

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import {
   SiNextdotjs,
   SiTailwindcss,
+  Sigsap,
   SiReact,
   SiNodedotjs,
   SiExpress,
@@ -42,9 +43,9 @@ export default function Projects({ isDarkMode }) {
       },
       {
         title: "Portfolio",
-        url: "http://Karank.tech",
-        imageUrl: `https://image.thum.io/get/width/1200/crop/900/noanimate/https://karank.tech`,
-        github: "https://github.com/kendrekaran/NextJs_Portfolio",
+        url: "https://portfolio-silk-chi-66.vercel.app/#top",
+        imageUrl: assets.portfolio_img.src,
+        github: "https://github.com/rishi-35/portfolio",
         techStack: ["Next.js", "React", "Tailwind CSS"],
       },
     ],
@@ -55,6 +56,13 @@ export default function Projects({ isDarkMode }) {
         imageUrl: `https://i.pinimg.com/1200x/ac/84/4d/ac844ddca5671a065a55b7d8986c2176.jpg`,
         github: "https://github.com/rishi-35/url-shortner",
         techStack: ["Ejs", "Node.js"],
+      },
+      {
+        title: "Cocktail Bar ",
+        url: "https://mojito-animated-landing-page.vercel.app/",
+        imageUrl: assets.bar_page.src,
+        github: "https://github.com/rishi-35/mojito-landing-page",
+        techStack: ["React", "Tailwind CSS"],
       },
     ],
   };
@@ -171,6 +179,7 @@ export default function Projects({ isDarkMode }) {
               <div className="bg-[#2d2d2d] backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800/50 h-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
                 {/* Project Image */}
                 <div className="relative_aspect-video overflow-hidden">
+                  {console.log(project.imageUrl)}
                   <img
                     src={project.imageUrl || "/placeholder.svg"}
                     alt={project.title}
